@@ -32,10 +32,17 @@ module Jekyll
         # Wraps around #super and adds environment.
         # @return [Sprockets::Asset]
         # --
-        %i(find_asset find_asset!).each do |v|
-          define_method v do |*a|
-            super(*a).tap do |m|
-              m&.environment = self
+        def find_asset(*args, **options)
+          super.tap do |m|
+            m&.environment = self
+          end
+        end
+
+        def find_asset!(*args, **options)
+          uri, _ = resolve!(*args, **options)
+          if uri
+            load(uri).tap do |m|
+              m.environment = self
             end
           end
         end

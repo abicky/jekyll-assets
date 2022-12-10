@@ -22,11 +22,7 @@ module Jekyll
               complex(d)
             else
               d.picture args[:picture] do
-                d.img args.to_h({
-                  html: true, skip: HTML.skips + %i(
-                    picture
-                  )
-                })
+                d.img(args.to_h(html: true, skip: HTML.skips + %i(picture)))
               end
             end
           end
@@ -44,13 +40,13 @@ module Jekyll
               w, d = w.to_s.split(%r!\s+!, 2)
               Integer(w) # FIXME: Dubious
 
-              source({
+              source(
                 width: w,
                 args: h_args.dup,
                 src: path(width: w),
                 density: d,
                 doc: doc,
-              })
+              )
             end
 
             doc.img(

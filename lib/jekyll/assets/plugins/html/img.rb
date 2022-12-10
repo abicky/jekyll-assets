@@ -132,9 +132,7 @@ module Jekyll
         end
 
         def build_img(html)
-          html.img(args.to_h(
-            html: true, skip: HTML.skips
-          ))
+          html.img(args.to_h(html: true, skip: HTML.skips))
         end
 
         def upscaled_widths

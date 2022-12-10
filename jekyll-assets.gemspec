@@ -25,7 +25,7 @@ Gem::Specification.new do |s|
 
   s.required_ruby_version = ">= 2.6.0"
   s.add_runtime_dependency("execjs", "~> 2.7")
-  s.add_runtime_dependency("nokogiri", "~> 1.10")
+  s.add_runtime_dependency("nokogiri", "~> 1.12.5")
   s.add_runtime_dependency("activesupport", ">= 5", "< 7")
   s.add_runtime_dependency("sprockets", "~> 4.0.beta7")
   s.add_runtime_dependency("fastimage", ">= 1.8", "~> 2.0")
